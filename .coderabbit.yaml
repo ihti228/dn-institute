@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en-US"
+early_access: false
+inheritance: false
+tone_instructions: "Be concise and brutally honest, yet supportive. Apply BLUF principles. Omit filler and rich formatting. Focus exclusively on actionable substance."
+
+reviews:
+  profile: chill
+  commit_status: false
+  review_status: false
+  changed_files_summary: false
+  sequence_diagrams: false
+  estimate_code_review_effort: false
+  related_prs: false
+  suggested_labels: false
+  poem: false
+  in_progress_fortune: false
+  finishing_touches:
+    docstrings:
+      enabled: false
+    unit_tests:
+      enabled: false
+  pre_merge_checks:
+    docstrings:
+      mode: "off"
+    title:
+      mode: "off"
+    description:
+      mode: "off"
+    issue_assessment:
+      mode: "off"
+  path_instructions:
+    - path: "**/posts/*.md"
+      instructions: "Quality check: Use the surrounding files in the `main` branch of the directory where commits are made to better understand the context and the required quality level for submissions. Fact check: Identify the most surprising, debatable, or contentious facts and claims. Use web browsing tools with search terms that would support or disprove the claims. Recency check: Web search for a combination of the concerned entities and event type, focusing on the most recent results, to ensure the proposed article content is up-to-date and includes all new developments. When noticing any deviations from the requirements, comment with the list of actionable items that would meaningfully improve the article beyond cosmetic changes and require significant reasoning and research effort to complete."
+    - path: "**/market-health/posts/**"
+      instructions: "Make sure submitted articles are about sophisticated market manipulation and include profound original analysis, demonstrating the author's analytical abilities, rather than their ability to rehash publicly available information. Highlight any divergence from the submission requirements listed in the associated issue (#277)."
+  tools:
+    languagetool:
+      enabled: false
+    github-checks:
+      enabled: false
+    biome:
+      enabled: false
+    shellcheck:
+      enabled: false
+
+chat:
+  art: false
