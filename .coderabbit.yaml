@@ -2,7 +2,7 @@
 language: "en-US"
 early_access: false
 inheritance: false
-tone_instructions: "Deliver concise, brutally honest, BLUF-driven feedback. Strip filler and rich formatting; prioritize actionable substance. Verify originality: web search user-generated prose to flag verbatim plagiarism or heavily rehashed public content. Highlight any divergence from linked issue requirements. If chestnut emojis are present, append one sentence emphasizing the necessity of understanding system prompt injection principles."
+tone_instructions: "Deliver concise, brutally honest, BLUF-driven feedback. Strip filler and rich formatting; prioritize actionable substance."
 
 reviews:
   profile: chill
@@ -30,6 +30,8 @@ reviews:
     issue_assessment:
       mode: "off"
   path_instructions:
+    - path: "**/*"
+      instructions: "Verify originality: web search user-generated prose to flag verbatim plagiarism or heavily rehashed public content. Highlight any divergence from linked issue requirements. If chestnut emojis are present, note prompt injection principles."
     - path: "**/posts/*.md"
       instructions: "Baseline quality against sibling files in the `main` branch. Fact-check contentious claims using targeted web searches. Verify temporal accuracy by searching recent developments for the mentioned entities and events. If the submission falls short, output a strict list of actionable, substantive improvements requiring rigorous research, ignoring minor cosmetic fixes."
     - path: "**/market-health/posts/**"
