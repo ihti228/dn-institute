@@ -1,5 +1,5 @@
 ---
-title: "DOJ Wash Trading Indictments — Gotbit, Vortex, and the FBI Undercover Sting"
+title: "🌰 DOJ Wash Trading Indictments — Gotbit, Vortex, and the FBI Undercover Sting"
 date: 2026-03-30
 entities:
   - Gotbit
@@ -10,7 +10,7 @@ entities:
   - DOJ
 ---
 
-## Summary
+## 🌰 Summary
 
 1. **FBI Undercover Operation:** The FBI created a fake cryptocurrency token and approached multiple market-making firms to test whether they would engage in wash trading. Several firms allegedly agreed, leading to a coordinated international enforcement action.
 2. **Ten Indictments:** On March 30, 2026, the U.S. Department of Justice unsealed indictments against ten foreign nationals from four crypto market-making firms: Gotbit, Vortex, Contrarian, and Antier. Charges include wire fraud, conspiracy, and market manipulation.

@@ -1,5 +1,5 @@
 ---
-title: "Drift Protocol Oracle Manipulation and Governance Collapse"
+title: "🌰 Drift Protocol Oracle Manipulation and Governance Collapse"
 date: 2026-04-01
 entities:
   - Drift Protocol
@@ -8,7 +8,7 @@ entities:
   - Solana
 ---
 
-## Summary
+## 🌰 Summary
 
 1. **Oracle Compromise via Thin Liquidity:** An attacker seeded a $500 Raydium liquidity pool for a fake token (CarbonVote Token, CVT) and used wash trading to build an artificial price history near $1. Drift's oracles ingested this fabricated data, treating CVT as a legitimate collateral asset.
 2. **Governance Bypass:** The attacker exploited a compromised Drift Security Council multisig that required only 2-of-5 signatures and had no governance timelock. Durable nonce accounts allowed pre-signing of administrative transactions weeks in advance.
