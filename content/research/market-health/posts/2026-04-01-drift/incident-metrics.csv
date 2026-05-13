@@ -1,0 +1,13 @@
+timestamp,event,loss_usd,metric_type,metric_value,source
+2026-03-23,attacker_prepares_nonces,0,preparation,durable_nonce_setup,Drift post-mortem
+2026-04-01T12:00:00Z,cvt_listed_unlimited_withdrawals,0,governance_change,2_of_5_multisig_no_timelock,Drift statement
+2026-04-01T12:03:00Z,cvt_deposited_collateral,0,synthetic_collateral,750000000_cvt_at_1_usd,on-chain data
+2026-04-01T12:05:00Z,first_withdrawal,0,asset_drain_start,USDC_SOL_JLP_WBTC,Wu Blockchain
+2026-04-01T12:12:00Z,final_withdrawal,285000000,total_exploit,31_withdrawals_12_minutes,Wu Blockchain
+2026-04-01T13:00:00Z,tvl_collapse,255000000,tvl_loss,48_percent_in_1_hour,Yahoo Finance
+2026-04-01T14:00:00Z,drift_token_crash,0,governance_token_drop,40_percent,Binance Square
+2026-04-01T15:00:00Z,public_acknowledgment,0,response_time,3_hours,Drift X post
+2026-04-01T18:00:00Z,bridge_to_ethereum,0,cross_chain_exfil,USDC_via_CCTP,ZachXBT tracing
+2026-04-02,investigation_begins,0,recovery_status,fraction_recovered,ZachXBT report
+2026-04-01T12:00:00Z,oracle_manipulation_cost,500,oracle_compromise_cost,0.00018_percent_of_loss,analysis
+2026-04-01T12:00:00Z,audit_scope_gap,0,audit_failure,Trail_of_Bits_2022_ClawSecure_2026,audit reports
