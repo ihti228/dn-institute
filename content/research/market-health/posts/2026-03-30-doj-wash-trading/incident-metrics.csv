@@ -1,0 +1,11 @@
+timestamp,event,metric_type,metric_value,source
+2025-Q3,fbI_creates_fake_token,preparation,undercover_token,IRS_statement
+2025-Q3,approaches_market_makers,preparation,multi_firm_contact,DOJ_indictment
+2026-03-30,indictments_unsealed,enforcement,10_defendants_charged,IRS
+2026-03-30,firms_named,enforcement,4_firms_implicated,DOJ
+2026-03-30,charges_filed,legal,wire_fraud_conspiracy,DOJ
+2026-03-30,cross_border_complexity,enforcement,jurisdictional_challenge,legal_analysis
+2026-03-30,wash_trading_as_service,market_structure,institutionalized_manipulation,FBI_sting
+2026-03-30,detection_gap,exchange_surveillance,siloed_monitoring,analysis
+2026-03-30,price_impact,market_health,fake_volume_attracts_real_buyers,FBI_measurement
+2026-03-30,regulatory_signal,policy,criminal_not_civil,DOJ_statement
