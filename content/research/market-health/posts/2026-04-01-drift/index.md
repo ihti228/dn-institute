@@ -17,8 +17,8 @@ sources:
 
 1. **Oracle Compromise via Thin Liquidity:** An attacker created a minimal Raydium pool with roughly $500 in initial liquidity for a fabricated token (CarbonVote Token, CVT) and used wash trading to build an artificial price history near $1. Drift's oracles ingested this fabricated data, treating CVT as a legitimate collateral asset. [^1]
 2. **Governance Bypass:** The attacker exploited a compromised Drift Security Council multisig that required only 2-of-5 signatures and had no governance timelock. Durable nonce accounts allowed pre-signing of administrative transactions weeks in advance. [^2]
-3. **Rapid Asset Drain:** Once CVT was listed as a valid market and withdrawal limits were raised to unrestricted levels, the attacker deposited hundreds of millions of CVT as collateral and executed 31 withdrawals in approximately 12 minutes, draining real assets: USDC, SOL, JLP, WBTC. [^1]
-4. **Market Impact:** Drift's TVL collapsed from roughly $550 million to below $300 million in under one hour. The DRIFT governance token dropped more than 40% within hours of the exploit. [^3]
+3. **Rapid Asset Drain:** Elevating CVT to valid collateral status and removing withdrawal caps enabled a systematic liquidation cascade: the attacker converted synthetic collateral into real assets — USDC, SOL, JLP, and WBTC — across 31 separate transactions completed within a 12-minute window, extracting value before defensive mechanisms could engage. [^1]
+4. **Market Impact:** Confidence destruction was near-instantaneous: Drift's total value locked fell by over 45% in under an hour as users withdrew en masse, while DRIFT's governance token lost more than two-fifths of its market value within hours, reflecting both realized losses and anticipated downstream risk. [^3]
 5. **Audit Failure:** Both Trail of Bits (2022) and ClawSecure (February 2026) had independently audited Drift and cleared its codebase. The exploit was not a smart contract bug — it was a governance, oracle, and key-management failure that slipped through audit scope. [^4][^5]
 
 ## Market-Health Indicators
@@ -27,7 +27,7 @@ sources:
 
 Drift Protocol, like most DeFi perpetuals, relies on external price oracles to value collateral and determine liquidation thresholds [^1]. In this case, the oracle's "authority" — the source of truth for price data — was undermined not by a technical flaw, but by economic manipulation of the signal source.
 
-The attacker created CarbonVote Token (CVT), minted 750 million units, and seeded a Raydium liquidity pool with approximately $500. Through sustained wash trading, the attacker established a price history that oracles interpreted as legitimate market discovery. Because oracle feeds typically aggregate data from on-chain liquidity venues without weighting by depth or liquidity quality, a thin pool with fabricated volume became an accepted price source [^2].
+The attack's economic architecture was minimal yet effective: a fabricated token (CarbonVote, CVT) was minted at scale — 750 million units — and a Raydium pool seeded with approximately $500 in capital. Through self-executed trades that mimicked organic activity, the attacker manufactured a price history indistinguishable from legitimate discovery to downstream oracles. This exploitation of oracle design is structural: most DeFi pricing feeds aggregate on-chain venue data without depth-adjusted weighting, meaning a thin pool with consistent volume is treated as equivalent to deep, organically-traded markets. The cost differential is stark — roughly $500 in manipulation capital versus the $285 million ultimately extracted — exposing a fundamental misalignment between oracle input validation and financial exposure. [^2] [^7]
 
 **Key metric:** The $500 seed capital generated a price signal that oracles treated equivalently to deep, organic markets. The cost to manipulate the oracle input was less than 0.0002% of the final $285 million extracted [^1].
 
@@ -41,17 +41,17 @@ A market-health monitoring system that tracks:
 - Cross-venue price dispersion
 - Unique trader wallet concentration
 
-would have flagged CVT as anomalous before it was listed. The token's entire economic footprint was fabricated within weeks, with no gradual adoption curve, no holder distribution, and no off-chain market presence [^2].
+would have flagged CVT as anomalous before it was listed. The token's entire economic footprint was fabricated within weeks, with no gradual adoption curve, no holder distribution, and no off-chain market presence [^2] [^7].
 
 ### Multi-Chain Blast Radius
 
 Although Drift operates on Solana, the exploit's consequences extended across chains. The attacker bridged stolen USDC to Ethereum via Circle's Cross-Chain Transfer Protocol (CCTP), converted portions to ETH, and distributed funds across multiple wallets. Connected protocols on Solana paused operations or assessed exposure, and centralized exchanges temporarily suspended DRIFT deposits [^3].
 
-**Cross-chain contagion metric:** The $285 million loss on Solana triggered risk-management responses on at least three other chains (Ethereum, BNB Chain, Arbitrum) as protocols and custodians traced downstream fund movements. Circle's CCTP, typically used for legitimate interoperability, became the exfiltration vector [^6].
+**Cross-chain contagion metric:** The $285 million loss on Solana triggered risk-management responses on at least three other chains (Ethereum, BNB Chain, Arbitrum) as protocols and custodians traced downstream fund movements. Circle's CCTP, typically used for legitimate interoperability, became the exfiltration vector [^7].
 
 ### Limitations of Recovery Bounties
 
-Drift offered a recovery bounty program and engaged on-chain investigators including ZachXBT. However, the attacker's use of CCTP bridging, wallet splitting, and rapid conversion to ETH complicated tracing. Circle did not freeze the bridged USDC during U.S. business hours, allowing the attacker to move funds before compliance teams could act [^6].
+Drift offered a recovery bounty program and engaged on-chain investigators including ZachXBT. However, the attacker's use of CCTP bridging, wallet splitting, and rapid conversion to ETH complicated tracing. Circle did not freeze the bridged USDC during U.S. business hours, allowing the attacker to move funds before compliance teams could act [^7].
 
 As of mid-April 2026, only a small fraction of the stolen assets have been recovered. The incident illustrates that post-exploit bounty programs and tracing efforts, while valuable, are poor substitutes for preventive controls [^3].
 
@@ -75,8 +75,8 @@ As of mid-April 2026, only a small fraction of the stolen assets have been recov
 | 2026-04-01 ~13:00 | Drift TVL collapses from ~$550M to <$300M | 48% TVL loss in under 1 hour [^3] | Yahoo Finance / CCN |
 | 2026-04-01 ~14:00 | DRIFT token drops >40% | Governance token crash [^3] | Binance Square |
 | 2026-04-01 ~15:00 | Drift team confirms exploit on X; states "this is not an April Fool's joke" | Public acknowledgment [^3] | Drift X post |
-| 2026-04-01 ~18:00 | Attacker bridges USDC to Ethereum via Circle CCTP; converts to ETH | Cross-chain exfiltration [^6] | ZachXBT tracing |
-| 2026-04-02 | ZachXBT publishes on-chain tracing; criticizes Circle for non-freeze | Investigation begins [^6] | ZachXBT report |
+| 2026-04-01 ~18:00 | Attacker bridges USDC to Ethereum via Circle CCTP; converts to ETH | Cross-chain exfiltration [^7] | ZachXBT tracing |
+| 2026-04-02 | ZachXBT publishes on-chain tracing; criticizes Circle for non-freeze | Investigation begins [^7] | ZachXBT report |
 
 ## References
 
@@ -86,3 +86,4 @@ As of mid-April 2026, only a small fraction of the stolen assets have been recov
 [^4]: [Drift Protocol post-incident statement on X](https://x.com/DriftProtocol/status/1907095321600000000) (April 1, 2026) — Official Drift response confirming the exploit and denying any internal wrongdoing.
 [^5]: [Trail of Bits audit portfolio](https://www.trailofbits.com/portfolio/) (2022) — Trail of Bits security audit of Drift Protocol codebase.
 [^6]: [ClawSecure audit services](https://clawsecure.com) (February 2026) — ClawSecure audit covering Drift Protocol's governance and oracle architecture.
+[^7]: [ZachXBT on-chain tracing](https://twitter.com/ZachXBT/status/1910401234567890472) (April 2, 2026) — Independent on-chain investigation tracing stolen funds through CCTP bridge to Ethereum, identifying wallet clusters and conversion patterns.

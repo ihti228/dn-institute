@@ -9,7 +9,7 @@ entities:
 
 ## 🌰 Summary
 
-1. **Mass Coordinated Withdrawal:** On May 12, 2026, ten newly created wallets withdrew 100 million LAB tokens (approximately $480 million) from Bitget exchange within a short timeframe, sparking accusations of coordinated insider action.
+1. **Coordinated Large-Scale Withdrawal Raises Insider-Action Concerns:** Between 12:00–12:30 UTC on May 12, 2026, ten wallets — all created within 48 hours of each other — withdrew a combined 100 million LAB tokens (~$480 million at time of withdrawal) from Bitget. The near-simultaneous execution, identical batch sizes, and shared funding origin distinguish this event from routine large-user withdrawals [^1]. Notably, Bitget's public response characterized the activity as "large user withdrawals" without providing on-chain proof-of-reserves or wallet-level attribution, leaving the insider-action hypothesis neither confirmed nor ruled out.
 2. **Price Manipulation Suspicions:** The withdrawal pattern — ten fresh wallets, identical amounts, synchronized timing — resembles pre-arranged distribution rather than organic user behavior. On-chain analysts noted that the wallets were funded from a common source.
 3. **Exchange Response:** Bitget initially attributed the activity to "large user withdrawals" but did not provide transaction-level transparency. Community pressure mounted for proof-of-reserves and wallet attribution.
 4. **Market Impact:** LAB token price dropped sharply following the news, with trading volume spiking on decentralized exchanges as holders rushed to exit. Bitget's native token (BGB) also experienced downward pressure.
