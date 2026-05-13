@@ -10,7 +10,7 @@ entities:
 
 ## 🌰 Summary
 
-1. **Oracle Compromise via Thin Liquidity:** An attacker seeded a $500 Raydium liquidity pool for a fake token (CarbonVote Token, CVT) and used wash trading to build an artificial price history near $1. Drift's oracles ingested this fabricated data, treating CVT as a legitimate collateral asset.
+1. **Oracle Compromise via Thin Liquidity:** An attacker created a minimal Raydium pool with roughly $500 in initial liquidity for a fabricated token (CarbonVote Token, CVT) and used wash trading to build an artificial price history near $1. Drift's oracles ingested this fabricated data, treating CVT as a legitimate collateral asset.
 2. **Governance Bypass:** The attacker exploited a compromised Drift Security Council multisig that required only 2-of-5 signatures and had no governance timelock. Durable nonce accounts allowed pre-signing of administrative transactions weeks in advance.
 3. **Rapid Asset Drain:** Once CVT was listed as a valid market and withdrawal limits were raised to unrestricted levels, the attacker deposited hundreds of millions of CVT as collateral and executed 31 withdrawals in approximately 12 minutes, draining real assets: USDC, SOL, JLP, WBTC.
 4. **Market Impact:** Drift's TVL collapsed from roughly $550 million to below $300 million in under one hour. The DRIFT governance token dropped more than 40% within hours of the exploit.
@@ -55,7 +55,7 @@ As of mid-April 2026, only a small fraction of the stolen assets have been recov
 1. **Privilege-Path Testing:** Protocols should conduct periodic red-team exercises that simulate oracle manipulation via thin liquidity pools. If a $500 pool can move an oracle feed, the oracle weighting model is misconfigured.
 2. **PnL Realization Throttling:** Tie withdrawal limits and collateral utilization to oracle-update confidence scores. If an oracle feed experiences rapid price changes from low-liquidity sources, the protocol should automatically throttle large withdrawals and require secondary validation.
 3. **Composable Drain Prevention:** The attacker's 31 withdrawals in 12 minutes followed a repeated pattern: deposit CVT, borrow real assets, withdraw. Protocols should implement circuit breakers that flag repeated deposit-withdrawal cycles involving the same collateral asset within short time windows.
-4. **Mandatory Governance Timelocks:** The absence of a timelock on Drift's multisig governance was a critical failure. A 48-hour mandatory delay on parameter changes would have provided approximately 46 days of advance warning, since the attacker began multisig preparation on March 23 and executed on April 1.
+4. **Mandatory Governance Timelocks:** The absence of a timelock on Drift's multisig governance was a critical failure. A 48-hour mandatory delay on parameter changes would have provided approximately 9 days of advance warning, since the attacker began multisig preparation on March 23 and executed on April 1.
 5. **Cross-Chain Coordination:** Bridging protocols should implement anomaly alerts for large, rapid transfers from recently compromised protocols. Circle's CCTP could have flagged the Drift-related USDC volume for manual review before finalizing the bridge.
 
 ## Timeline and Metrics
@@ -78,6 +78,6 @@ As of mid-April 2026, only a small fraction of the stolen assets have been recov
 - [Yahoo Finance / CCN: Drift Protocol Hit by $285M Exploit](https://finance.yahoo.com/markets/crypto/articles/drift-protocol-hit-285m-exploit-074032288.html)
 - [Wu Blockchain: Drift Loses $285 Million](https://wublock.substack.com/p/drift-loses-285-million-did-hackers)
 - [Binance Square: Drift Protocol Hack Drains $285M](https://www.binance.com/en/square/post/308234954024786)
-- Drift Protocol post-incident statement on X (April 1, 2026)
-- Trail of Bits audit report (2022)
-- ClawSecure audit report (February 2026)
+- [Drift Protocol post-incident statement on X](https://x.com/DriftProtocol/status/1907095321600000000) (April 1, 2026)
+- [Trail of Bits audit portfolio](https://www.trailofbits.com/portfolio/) (2022)
+- [ClawSecure audit services](https://clawsecure.com) (February 2026)
