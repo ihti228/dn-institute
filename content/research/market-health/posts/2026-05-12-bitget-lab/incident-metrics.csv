@@ -1,0 +1,11 @@
+timestamp,event,metric_type,metric_value,source
+2026-05-12,ten_wallets_withdraw,withdrawal,100000000_lab_tokens,news.bitcoin.com
+2026-05-12,usd_value,withdrawal,480000000,news.bitcoin.com
+2026-05-12,wallet_age,clustering,newly_created,on_chain_analysis
+2026-05-12,funding_source,clustering,common_source,on_chain_analysis
+2026-05-12,price_drop,market_impact,sharp_decline,nulltx.com
+2026-05-12,exchange_response,transparency,large_user_withdrawals,bitget_statement
+2026-05-12,community_demand,transparency,proof_of_reserves,social_media
+2026-05-12,detection_latency,surveillance,social_media_not_exchange,analysis
+2026-05-12,withdrawal_pattern,behavior,synchronized_timing,on_chain_analysts
+2026-05-12,token_concentration,risk,high_exchange_dependency,analysis
